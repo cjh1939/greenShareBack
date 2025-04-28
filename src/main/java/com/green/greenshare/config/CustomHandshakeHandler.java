@@ -29,7 +29,7 @@ public class CustomHandshakeHandler extends DefaultHandshakeHandler {
   ) {
     String userEmail = (String) attributes.get("userEmail"); // ✅ 여기! token 말고 userEmail
     if (userEmail != null) {
-      return new UsernamePasswordAuthenticationToken(userEmail, null, List.of());
+      return new StompPrincipal(userEmail);
     }
     return null;
   }
